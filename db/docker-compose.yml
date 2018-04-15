@@ -1,0 +1,13 @@
+version: "2.1"
+
+services:
+  db:
+    image: postgres:alpine
+    container_name: pandahack_db
+    env_file: ../.env
+
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    ports:
+      - 5432:5432
